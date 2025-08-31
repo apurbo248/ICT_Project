@@ -1,108 +1,132 @@
-/* ===== Base ===== */
-:root{
-  --bg1:#eef3ff;
-  --bg2:#ffffff;
-  --ink:#1f2937;
-  --muted:#6b7280;
-  --brand:#4f46e5;      /* indigo */
-  --brand-2:#06b6d4;    /* cyan */
-  --good:#16a34a;
-  --bad:#dc2626;
-  --card:#ffffffaa;     /* translucent for glass effect */
-  --ring:#dbeafe;
-  --shadow: 0 10px 30px rgba(0,0,0,.08);
-  --radius:16px;
+:root {
+  --bg: #f6f7fb;
+  --bg-card: #ffffff;
+  --text-1: #111111;
+  --text-2: #333333;
+  --text-3: #6b7280;
+  --line-soft: #edf0f5;
+  --line-mid: #d9dde6;
+  --shadow-1: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
-html,body{height:100%}
-body{
-  margin:0;
-  color:var(--ink);
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-  background: radial-gradient(1200px 700px at 10% -10%, #e0f2fe 0, transparent 40%),
-              radial-gradient(1000px 700px at 110% 20%, #ede9fe 0, transparent 35%),
-              linear-gradient(180deg, var(--bg1), var(--bg2));
+/* Themes */
+[data-theme="teal"] {
+  --bg: #f0fdfa;
+  --bg-card: #ffffff;
+  --text-1: #134e4a;
+  --text-2: #0f766e;
+  --text-3: #5eead4;
+  --line-soft: #ccfbf1;
+  --line-mid: #99f6e4;
+}
+[data-theme="emerald"] {
+  --bg: #ecfdf5;
+  --bg-card: #ffffff;
+  --text-1: #064e3b;
+  --text-2: #059669;
+  --text-3: #34d399;
+  --line-soft: #d1fae5;
+  --line-mid: #a7f3d0;
+}
+[data-theme="slate"] {
+  --bg: #f1f5f9;
+  --bg-card: #ffffff;
+  --text-1: #0f172a;
+  --text-2: #1e293b;
+  --text-3: #475569;
+  --line-soft: #e2e8f0;
+  --line-mid: #cbd5e1;
+}
+[data-theme="night"] {
+  --bg: #0b1220;
+  --bg-card: #0f172a;
+  --text-1: #e2e8f0;
+  --text-2: #cbd5e1;
+  --text-3: #94a3b8;
+  --line-soft: #1e293b;
+  --line-mid: #334155;
+  --shadow-1: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
-/* ===== Navbar ===== */
-.navbar{
-  border:0;
-  box-shadow: var(--shadow);
-  border-radius: 0 0 var(--radius) var(--radius);
-}
-.navbar .h3{color:#111827}
-
-/* ===== Cards / Glass look ===== */
-.card{
-  background: var(--card);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,.6);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-.card-header{
-  border-bottom: 1px solid #eef2ff;
+/* Body */
+body.bg-soft {
+  background: var(--bg);
+  color: var(--text-2);
 }
 
-/* ===== Metrics ===== */
-.metric .card-body{padding:1.4rem 1.6rem}
-.metric .display-4{line-height:1; letter-spacing:.5px}
-.metric .text-muted{color:var(--muted)!important}
-.metric-icon{
-  width:64px; height:64px; display:grid; place-items:center;
-  border-radius:14px; background:linear-gradient(135deg, #eef2ff, #ffffff);
-  color:var(--brand);
-  box-shadow: inset 0 0 0 1px var(--ring), 0 10px 20px rgba(79,70,229,.15);
+/* Cards */
+.card {
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  background: var(--bg-card);
+}
+.card-header {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--line-soft);
+  font-weight: 500;
 }
 
-/* different accent edges for the two metric cards */
-.metric:nth-of-type(1){border-left:6px solid var(--brand)}
-.metric:nth-of-type(2){border-left:6px solid var(--brand-2)}
-
-/* ===== Buttons ===== */
-.btn{border-radius:12px; padding:.55rem 1rem; box-shadow: 0 6px 14px rgba(0,0,0,.06)}
-.btn-success{background:linear-gradient(135deg,#22c55e,#16a34a); border:0}
-.btn-danger {background:linear-gradient(135deg,#ef4444,#dc2626); border:0}
-.btn-outline-secondary{border-radius:12px}
-
-/* small inputs look nicer */
-.form-control-sm{border-radius:10px}
-
-/* ===== Badges ===== */
-.badge{padding:.5rem .7rem; border-radius:999px; font-weight:600}
-.badge.bg-success{background:#dcfce7; color:#166534}
-.badge.bg-danger {background:#fee2e2; color:#7f1d1d}
-.badge.bg-info   {background:#e0f2fe; color:#075985}
-.badge.bg-secondary{background:#e5e7eb; color:#374151}
-
-/* ===== Charts ===== */
-canvas{max-height:260px}
-.card .card-body{padding:1rem 1.25rem}
-
-/* ===== Table ===== */
-.table{font-size:.95rem}
-.table thead{background:#f8fafc}
-.table th{color:#334155}
-.table tbody tr{transition:background .15s ease}
-.table tbody tr:hover{background:#f1f5f9}
-
-/* ===== Login page (if you reuse style here) ===== */
-body.page{
-  display:grid; place-items:center;
-  background:
-    radial-gradient(900px 600px at -10% 0%, #e0f2fe 0, transparent 40%),
-    radial-gradient(900px 600px at 110% 10%, #ede9fe 0, transparent 38%),
-    linear-gradient(180deg, var(--bg1), var(--bg2));
+/* Navigation buttons */
+.nav-btn {
+  border-radius: 10px;
+  background: #f2f3f8;
 }
-.page .card{max-width:420px; padding:2rem}
-.page input{
-  width:100%; padding:.7rem .9rem; border-radius:12px;
-  border:1px solid #e5e7eb; outline:0;
+.nav-btn.active {
+  background: #e6e8f2;
 }
-.page input:focus{border-color:#6366f1; box-shadow:0 0 0 4px #e0e7ff}
-.page .btn{width:100%}
 
-/* ===== Utilities ===== */
-.text-muted{color:var(--muted)!important}
-.bg-white{background:#ffffffcc!important; backdrop-filter: blur(8px)}
+/* Tables */
+.table > :not(caption) > * > * {
+  background: transparent;
+}
+.table thead th {
+  font-weight: 600;
+}
+
+/* Footer */
+.footer {
+  color: var(--text-3);
+}
+
+/* Badges */
+.badge {
+  font-size: 0.8rem;
+  padding: 0.35em 0.6em;
+  border-radius: 8px;
+}
+
+/* Alerts */
+.alert {
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 10px;
+  font-weight: 500;
+}
+.btn-sm {
+  border-radius: 8px;
+  padding: 0.25rem 0.6rem;
+}
+/* Toast notifications */
+.toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  min-width: 280px; max-width: 420px;
+  padding: 14px 16px; border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  color: #fff; z-index: 9999;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .25s ease, transform .25s ease;
+  background: #f59e0b; /* default warn */
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.info { background:#2563eb; }
+.toast.success { background:#16a34a; }
+.toast.warn { background:#f59e0b; }
+.toast.error { background:#dc2626; }
+.toast::before { content:"⚠ "; margin-right:6px; font-size:16px; }
+
